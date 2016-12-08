@@ -1,0 +1,265 @@
+* {
+  font-size: 14px;
+}
+
+.footer {
+  .copyright-box {
+    p {
+      margin: 0;
+    }
+  }
+}
+
+.navbar {
+  margin: 0px;
+}
+
+.swiper-container {
+  height: auto;
+  .swiper-slide {
+    img {
+      height: 460px;
+      width: 100%;
+    }
+  }
+}
+
+/*sleep_center*/
+.sleep-center-box {
+  margin-top: 20px;
+  .pro-title-widget {
+    margin-bottom: 20px;
+  }
+  .img-show-box {
+    .show-text-box {
+      text-align: left;
+      p {
+        padding-right: 30px;
+        padding-bottom: 10px;
+      }
+
+    }
+    .feature {
+      ul {
+        li {
+          text-align: left;
+
+          span {
+            line-height: 30px;
+          }
+        }
+      }
+    }
+  }
+  .craft-show-box {
+    margin-top: 0px;
+  }
+
+  .xw-ml {
+
+    .ml-list {
+      margin-bottom: 20px;
+      .item {
+        padding: 5px 5px;
+        .row {
+          border: 1px solid #ddd;
+          background: #fff;
+          min-height: 180px;
+          img {
+            height: 180px;
+            width: 100%;
+            text-align: left;
+          }
+          .title {
+            padding: 5px 10px;
+            margin-top: 10px;
+          }
+          .desc {
+            padding: 5px 10px;
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*join_us*/
+.join_conditions {
+  margin-top: 0px;
+  padding: 20px 0 0px;
+  background: transparent;
+  .widget-page-title-box {
+    * {
+      text-align: center;
+    }
+  }
+  .name_div {
+    margin-top: 0px;
+    text-align: center;
+    .attr_name_cn {
+    }
+  }
+  .introduce_div {
+    background: #fff;
+    margin-top: 20px;
+    .number {
+      padding: 20px;
+      font-size: 24px;
+    }
+    .introduce {
+      width: 100%;
+      margin: 0px;
+      .introduce_attr {
+        height: 190px;
+      }
+    }
+    .next_img {
+      padding-bottom: 80px;
+    }
+  }
+}
+
+/*widget*/
+.widget-page-title {
+  text-align: center;
+  .attr_name_cn, .attr_name_en {
+    text-align: center;
+  }
+}
+
+.pro-title-widget {
+  text-align: center;
+  background: transparent;
+  padding: 15px;
+  .tab-box {
+    position: relative;
+    display: block;
+    text-align: center;
+    a {
+      line-height: 30px;
+      border: 1px solid #ddd;
+      background: #fff;
+      width: 100px;
+      margin: -3px;
+      text-align: center;
+      color: #000;
+      display: inline-block;
+      padding: 10px 20px;
+      &:hover, &:active, &.active {
+        text-decoration: none;
+        background: #0CA818;
+        color: #fff;
+      }
+    }
+    &.active a {
+      text-decoration: none;
+      background: #0CA818;
+      color: #fff;
+    }
+  }
+}
+
+/*product-list*/
+.product-list {
+  margin-top: 20px;
+  .widget-page-title-box {
+    margin-bottom: 20px;
+  }
+  .dyna-list {
+    background: #fff;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    .head-img {
+      height: 220px;
+      width: 90%;
+    }
+    .col-xs-8 {
+      height: 220px;
+      .title {
+        margin-top: 20px;
+      }
+      .desc {
+        padding: 10px 10px;
+      }
+      .date {
+        position: absolute;
+        right: 20px;
+        bottom: 10px;
+        font-size: 14px;
+        color: #1a1a1a;
+      }
+    }
+
+  }
+}
+
+/*product-detail*/
+.product-detail {
+  margin-top: 20px;
+  .widget-page-title-box {
+    margin-bottom: 20px;
+  }
+  .path-nav {
+    * {
+      font-size: 14px;
+    }
+  }
+  .detail-box {
+    background: #fff;
+    min-height: 450px;
+    margin-bottom: 20px;
+    padding: 10px;
+    .content {
+      padding: 20px;
+    }
+  }
+  .next-prev {
+    * {
+      color: #5e5e5e;
+      font-size: 17px;
+    }
+    margin: 10px 5px;
+    line-height: 30px;
+  }
+}
+
+img.hover-big {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  opacity: .7;
+  -moz-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+/*shop-box*/
+.shops {
+  .widget-page-title-box {
+    margin: 20px;
+  }
+  .shop-box {
+    margin-bottom: 20px;
+    .col-xs-4 {
+      padding: 15px 40px;
+      text-align: center;
+      overflow: hidden;
+    }
+    img {
+      text-align: center;
+      width: 100%;
+      height: 150px;
+      transition: .2s all;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+}

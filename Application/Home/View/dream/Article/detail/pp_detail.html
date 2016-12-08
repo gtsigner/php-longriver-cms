@@ -1,0 +1,34 @@
+<extend name="Base/common"/>
+<block name="body">
+    <div class="product-detail">
+
+        <div class="container">
+            <div class="widget-page-title-box text-center">
+                <h2 class="attr_name_cn">—&nbsp;{$category.title}&nbsp;—</h2>
+                <h3 class="attr_name_en">Brand Dynamics</h3>
+            </div>
+
+
+            <div class="path-nav">
+                <p>您现在的位置是: <a href="__ROOT__/">首页</a> &gt; <a href="{:U('article/lists?category=42')}">品牌动态</a></p>
+            </div>
+            <div class="row detail-box">
+                <h2 class="text-center">{$info.title}</h2>
+                <p class="text-center">发表于: {$info.create_time|date="Y-m-d H:i:s",###}</p>
+                <div class="content">
+                    <p>{$info.content}</p>
+                </div>
+            </div>
+            <div class="next-prev">
+                <article:prev name="prev" info="info">
+                    <a href="{:U('?id='.$prev['id'])}">上一篇：{$info.title}</a>
+                </article:prev>
+                <br>
+                <article:next name="next" info="info">
+                    <a href="{:U('?id='.$next['id'])}">下一篇：{$info.title}</a>
+                </article:next>
+            </div>
+        </div>
+
+    </div>
+</block>
