@@ -1,0 +1,123 @@
+<extend name="Base/common"/>
+<block name="banner"></block>
+<block name="body">
+    <div class="product-page-box">
+        <include file="Base/product_category"/>
+        <div class="widget-page-title-box text-center">
+            <h2 class="attr_name_cn">—&nbsp;系列产品&nbsp;—</h2>
+            <h3 class="attr_name_en">JOIN INVESTMENT</h3>
+        </div>
+        <div class="pro-title-widget">
+            <div class="tab-box">
+                <a class="tab-item active" href="{:U('pages/product')}">系列产品</a>
+                <a class="tab-item" href="{:U('pages/recommend')}">新品推荐</a>
+                <a class="tab-item" href="{:U('pages/diy')}">DIY专区</a>
+            </div>
+        </div>
+        <div id="tab-page-1">
+            <div class="product_datails" id="product_page">
+                <article>
+                    <!--产品详情的专区-->
+                    <div class="five_kindof_bedspace">
+                        <div class="five_shopdatails">
+                            <ul class="attr_lists">
+                                <!--属性列表-->
+                                <li v-for="fi in proFilter">
+                                    <img src="__PUBLIC__/v1/images/img/arrow.jpg"/>
+                                    <span v-html="fi.remark"></span>:
+                                    <a :class="" v-for="attI in parseAttrExtra(fi.extra)" v-html="attI['k']"></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="five_displayshop">
+                            <div class="five_displayshop_body container">
+                                <div class="row">
+                                    <!--产品列表-->
+                                    <div class="col-xs-4" v-for="pro in evenProducts">
+                                        <a href="#"><img class="ey-img-lazy"
+                                                         src="__PUBLIC__/v1/images/img/bed.jpg"/>
+                                            <p v-html="pro.title"></p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="five_changedisplay text-center row">
+                            <div>{$_page}</div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+        <!--公司荣誉-->
+        <div id="tab-page-2">
+
+        </div>
+    </div>
+    <script>
+
+
+        $(function () {
+            var _products = [];
+            var _attrs = [];
+            var vm = new Vue({
+                el: "#product_page",
+                data: {products: [], proFilter: {}},
+                filters: {
+                    parseAttrExtra: function () {
+
+                    }
+                },
+                computed: {
+                    evenProducts: function () {
+                        return this.products.filter(function (product) {
+                            var show = false;
+                            console.log(vm.proFilter);
+                            return product.title !== "1";
+                        });
+                    }
+                },
+                methods: {
+                    initPageData: function () {
+                        var _self = this;
+                        $.get("{:U('Pages/getProduct')}", {}, function (ret) {
+                            _self.$data.products = ret.data;
+                        }, 'JSON');
+                    },
+                    initAttr: function () {
+                        var _self = this;
+                        $.get("{:U('Pages/getProductAttr')}", {}, function (ret) {
+                            vm.proFilter = ret.data;
+                        }, 'JSON');
+                    },
+                    showData: function () {
+
+                    },
+                    parseAttrExtra: function (extra) {
+                        //console.log(extra);
+                        var attrData = extra.split("\n");
+                        var retData = [];
+                        attrData.forEach(function (it) {
+                            it = it.split(":");
+                            var k = it[0];
+                            var v = it[1];
+                            retData.push({k: v});
+                        });
+                        return retData;
+                    }
+                },
+                created: function () {
+                    this.initAttr();
+                    this.initPageData();
+
+                }
+            });
+
+
+        });
+    </script>
+    </div>
+</block>
+<block name="footer">
+
+</block>

@@ -1,0 +1,90 @@
+<extend name="Base/common"/>
+
+<block name="body">
+    <div class="customer_service-box ">
+        <div class="widget-page-title-box text-center">
+            <h2 class="attr_name_cn">—&nbsp;客户服务&nbsp;—</h2>
+            <h3 class="attr_name_en">CUSTOMER SERVICE</h3>
+        </div>
+        <div class="pro-title-widget">
+            <div class="tab-box" role="tablist" id="pageTab">
+                <a class="tab-item active" role="tab" data-toggle="tab" href="#tab-page-1">服务细则</a>
+                <a class="tab-item" role="tab" data-toggle="tab" href="#tab-page-2">常见问题</a>
+            </div>
+        </div>
+        <div class="tab-content">
+            <div id="tab-page-1" role="tabpanel" class="tab-pane tab-item active">
+                <div class="show-box container">
+                    <volist name="_service.xz_list" id="vo" key="k">
+                        <!--左-->
+
+                        <php>$checkShowType=$k%2;</php>
+                        <php>
+                            $cover=get_cover($vo['cover_id'],'path');
+                        </php>
+                        <eq name="checkShowType" value="1">
+                            <!--left-->
+                            <div class="row show-type">
+                                <div class="col-xs-8">
+                                    <p>全国联保、统一保修；凭“大自然”产品销售凭单和质量保证卡或其他有效凭证在任一有
+                                        ”销售或服务网络的城市均可享受“月光使者”服务；全程服务公司。产品三包有效期为1年，三包有效期自交货之
+                                        日起计算，扣除因修理占用的时间；大自然”产品自交货之日起30天内发生质量问题，“月光使者”将为您免费修
+                                        理或更换；如果您选择退货，“大自然”按原购买价格一次退清货款，不收取产品折旧费用</p>
+                                </div>
+                                <div class="col-xs-4 show_img1">
+                                    <a href="{:U('article/detail',array('id'=>$vo['id']))}">
+                                        <img src="__ROOT__{$cover}" alt=""
+                                             class="img-show ey-img-lazy ">
+                                    </a>
+                                </div>
+                            </div>
+                            </else>
+                            <!--right-->
+                            <div class="row show-type">
+                                <div class="col-xs-4 show_img2">
+                                    <a href="{:U('article/detail',array('id'=>$vo['id']))}">
+                                        <img src="__ROOT__{$cover}" alt=""
+                                             class="img-show ey-img-lazy ">
+                                    </a>
+                                </div>
+                                <div class="col-xs-8">
+                                    <p>
+                                        全国联保、统一保修；凭“大自然”产品销售凭单和质量保证卡或其他有效凭证在任一有
+                                        ”销售或服务网络的城市均可享受“月光使者”服务；全程服务公司。产品三包有效期为1年，三包有效期自交货之
+                                        日起计算，扣除因修理占用的时间；大自然”产品自交货之日起30天内发生质量问题，“月光使者”将为您免费修
+                                        理或更换；如果您选择退货，“大自然”按原购买价格一次退清货款，不收取产品折旧费用；
+                                    </p>
+                                </div>
+                            </div>
+                        </eq>
+                    </volist>
+                </div>
+            </div>
+            <div id="tab-page-2" role="tabpanel" class="tab-pane tab-item">
+                <div class="container">
+                    <!--TODO 查询列表数据-->
+                    <volist name="_service.qt_list" id="vo">
+                        <div class="row dyna-list">
+                            <div class="col-xs-4">
+                                <php>
+                                    $cover=get_cover($vo['cover_id'],'path');
+                                </php>
+                                <a href="{:U('article/detail',array('id'=>$vo['id']))}">
+                                    <img class="ey-img-lazy head-img hover-big" src="__ROOT__{$cover}"
+                                         alt=""
+                                         data-original="__ROOT__{$cover}">
+                                </a>
+                            </div>
+                            <div class="col-xs-8">
+                                <a href="{:U('article/detail',array('id'=>$vo['id']))}"><h3 class="text-center title">
+                                    {$vo.title}</h3></a>
+                                <p class="desc">{$vo.description}</p>
+                                <span class="date">发表于:{$vo.create_time|date="Y-m-d H:i",###}</span>
+                            </div>
+                        </div>
+                    </volist>
+                </div>
+            </div>
+        </div>
+    </div>
+</block>

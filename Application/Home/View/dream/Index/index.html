@@ -1,47 +1,140 @@
 <extend name="Base/common"/>
 
-<block name="header">
-    <header class="jumbotron subhead" id="overview">
-        <div class="container">
-            <h2>源自相同起点，演绎不同精彩！</h2>
-            <p class="lead"></p>
-        </div>
-    </header>
-</block>
-
-<block name="side">
-<!-- 左侧 nav
-================================================== -->
-    <div class="span3 bs-docs-sidebar">
-        <ul class="nav nav-list bs-docs-sidenav">
-            {:W('Category/lists', array(1, true))}
-        </ul>
-    </div>
-</block>
-
 <block name="body">
-    <div class="span9">
-        <!-- Contents
-        ================================================== -->
-        <section id="contents">
-            <article:list name="article" category="1" child="true">
-                <div class="">
-                    <h3><a href="{:U('Article/detail?id='.$article['id'])}">{$article.title}</a></h3>
-                </div>
-                <div>
-                    <p class="lead">{$article.description}</p>
-                </div>
-                <div>
-                    <span><a href="{:U('Article/detail?id='.$article['id'])}">查看全文</a></span>
-                    <span class="pull-right">
-                        <span class="author">{$article.uid|get_username}</span>
-                        <span>于 {$article.create_time|date='Y-m-d H:i',###}</span> 发表在 <span>
-                        <a href="{:U('Article/lists?category='.get_category_name($article['category_id']))}">{$article.category_id|get_category_title}</a></span> ( 阅读：{$article.view} )
-                    </span>
-                </div>
-                <hr/>
-            </article:list>
+    <div class="index-page">
 
-        </section>
+        <div class="title-box text-center" style="margin-top: 10px">
+            <h4 class="title-en">The Natural Bamboo Mattress Fibber</h4>
+            <h3 class="title-cn">竹原纤维床垫专家</h3>
+        </div>
+        <div class="split-tree-line">
+            <div class="shape-tree"></div>
+        </div>
+        <div class="index-show-box">
+            <img src="__PUBLIC__/v1/images/index-banner-show.png" draggable="false" alt="">
+        </div>
+        <div class="index-show-box-2">
+            <img src="__PUBLIC__/v1/images/index-banner-show-2.png" alt="">
+        </div>
+        <div class="title-box text-center" style="margin-top: 10px">
+            <h4 class="title-en">The Natural Bamboo Mattress Fibber</h4>
+            <h3 class="title-cn">竹原纤维床垫家族</h3>
+        </div>
+        <div class="split-tree-line">
+            <div class="shape-tree"></div>
+        </div>
+        <!--产品 筛选-->
+
+        <div class="product-change-box">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <a href="{:U('pages/product')}">
+                            <img src="__PUBLIC__/v1/images/index_change-1.png" alt="">
+                        </a>
+                    </div>
+                    <div class="col-xs-4">
+                        <a href="{:U('pages/recommend')}">
+                            <img src="__PUBLIC__/v1/images/index_change-2.png" alt="">
+                        </a>
+                    </div>
+                    <div class="col-xs-4">
+                        <a href="{:U('pages/diy')}">
+                            <img src="__PUBLIC__/v1/images/index_change-3.png" alt="">
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="title-box text-center">
+            <h4 class="title-en">The Natural Bamboo Mattress Family</h4>
+            <h3 class="title-cn">期待您的加入</h3>
+        </div>
+        <div class="split-tree-line">
+            <div class="shape-tree"></div>
+        </div>
+        <div class="join-text-box">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <img src="__PUBLIC__/v1/images/index_join_us.png" alt="">
+                    </div>
+                    <div class="col-xs-6">
+                        <h3 class="title">积极共赢，携手共进</h3>
+                        <p class="content">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;宜宾长顺竹木产业有限公司，是一家专业生产长江梦竹纤维植物床垫，以环保、健康、质量为
+                            根本的大型公司。我们专注于健康、深度睡眠的高档品牌。
+                            <br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;长江梦始终坚持环保、健康、舒适、质量的原则，集众家之长。在材料上不断考究、在技术上
+                            不断创新，已在国内外拥有了一大批追随者。所生产的产品，先后服务过跨国企业、星级酒店、运
+                            动健将、艺术明星、科学家等社会名流人仕，并得到一致好评。
+                            <br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;长江梦真正从消费者角度出发，充分发挥我们的人才优势、技术优势。致力于让产品更物超所
+                            值，让更多人能享受到长江梦最优质的深度睡眠产品。
+                            <br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我们的宗旨：给国民一个健康舒适的深度睡眠，我们的理念：采用最绿色考究的材料，做最舒
+                            适实在的好床垫。
+                            <br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;长江梦系列主要材质：竹纤维+乳胶、3E环保棕等环保健康材质，目前国民消费观念有所改变
+                            越来越注重养生保健，更加注重睡眠质量，本公司依托国民的消费理念推出了环保健康的竹纤维系
+                            列床垫，现面向全国招收代理商，零售商加盟。长江梦为您的梦想助力，为您打开一扇通往财富的
+                            大门。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="title-box text-center">
+            <h4 class="title-en">Yangtze Dream Shop</h4>
+            <h3 class="title-cn">长江梦商城</h3>
+        </div>
+        <div class="split-tree-line" style="margin-bottom: 20px">
+            <div class="shape-tree"></div>
+        </div>
+        <div class="shop-s-box">
+            <div class="shop-box container">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <a href="">
+                            <img class="img-responsive"
+                                 src="__PUBLIC__\v1\images\electronc_shopping_image\electronc_shopping_left.png" alt="">
+                        </a>
+                    </div>
+
+                    <div class="col-xs-4">
+                        <a href="">
+                            <img class="img-responsive"
+                                 src="__PUBLIC__\v1\images\electronc_shopping_image\electronc_shopping_center.png"
+                                 alt="">
+                        </a>
+                    </div>
+                    <div class="col-xs-4">
+                        <a href="">
+                            <img class="img-responsive"
+                                 src="__PUBLIC__\v1\images\electronc_shopping_image\electronc_shopping_right.png"
+                                 alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="friend-link-box">
+            <div class="container">
+                <div class="row">
+                    <h4>友情链接：</h4>
+                    <ul class="list-group list-inline">
+                        <li>
+                            <a href="#" target="_blank">友情链接1</a>
+                        </li>
+                        <li>
+                            <a href="#" target="_blank">友情链接2</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 </block>
