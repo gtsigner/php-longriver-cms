@@ -102,8 +102,8 @@
                     </div>
                     <div class="col-xs-3">
                         <ul class="list-group list-unstyled">
-                            <li><a href="">睡眠文化</a></li>
-                            <li><a href="">科学睡眠</a></li>
+                            <li><a href="{:U('pages/sleep_center')}">睡眠文化</a></li>
+                            <li><a href="{:U('pages/sleep_center')}">科学睡眠</a></li>
                             <li><a href=""></a></li>
                         </ul>
                     </div>
@@ -127,7 +127,7 @@
                         <p>微信公众号</p>
                     </div>
                     <div class="col-xs-6 text-center">
-                        <img src="__PUBLIC__/v1/images/footer_qrcode_1.png">
+                        <img src="__PUBLIC__/v1/images/qrcode-wb.png">
                         <p class="">官方微博</p>
                     </div>
                 </div>
@@ -137,11 +137,13 @@
 
     <div class="copyright-box">
         <p class="">
-            <a>联系我们</a> | <a>申请加盟</a> | <a>常见问题</a> | <a>法律条款</a> YiBin ChangShun Zhu Mu You Xian Gong Si 宜宾长顺竹木有限公司
+            <a>联系我们</a> | <a href="{:U('pages/join_us')}">申请加盟</a> | <a href="{:U('pages/service')}#tab-page-2">常见问题</a>
+            | <a>法律条款</a> YiBin ChangShun Zhu Mu You Xian Gong Si 宜宾长顺竹木有限公司
             川IC备024542号|<a target="_blank" href="//oeynet.com">成都易猿网站科技公司制作</a>
         </p>
     </div>
 </footer>
+
 <script>
     $(function () {
         $("img.ey-img-lazy").lazyload({effect: 'fadeIn'});
@@ -153,6 +155,46 @@
     })
 </script>
 <!-- /底部 -->
+
+
+<!--Author:https://github.com/zhaojunlike 右侧客服 Start-->
+<div class="online-service" id="oeynet-oneline-service">
+    <div class="content-box">
+        <div class="service-show-title">
+            <h3 class="show-title">
+                在线咨询
+            </h3>
+            <div class="tree-shape"></div>
+        </div>
+        <div class="main-box">
+            <div class="row-phone">
+                <img src="__PUBLIC__/v1/images/service-phone.png" alt="">
+                <p>400-668-775</p>
+            </div>
+            <div class="row-qq">
+                <img src="__PUBLIC__/v1/images/service-qq.png" alt="">
+                <h3>产品咨询</h3>
+                <a class="ey-btn ey-btn-block ey-btn-contact">售前:455811587</a>
+                <a class="ey-btn ey-btn-block  ey-btn-contact">售前:455811587</a>
+            </div>
+            <div class="row-join">
+                <a href="{:U('pages/join_us')}" class="ey-btn ey-btn-block ey-btn-contact">招商加盟</a>
+                <p>QQ:1255899477</p>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $('#oeynet-oneline-service').hover(function () {
+            $('#oeynet-oneline-service').stop().animate({right: '0px'}, 200);
+        }, function () {
+            $('#oeynet-oneline-service').stop().animate({right: '-190px'}, 200);
+        });
+    });
+</script>
+<!--Author:https://github.com/zhaojunlike 右侧客服 End-->
+
 </body>
 </html>
 

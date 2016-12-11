@@ -57,15 +57,28 @@ class PagesController extends HomeController
     public function getProduct($p = 1)
     {
         $map = array();
-        //筛选属性
-        $category['id'] = 45;
-        $Document = D('Document');
-        $list = $Document->lists($category['id']);
+        /**
+         * 获取子节点
+         */
+        $cateMap['pid'] = 47;
+        $category = M('category')->where($cateMap)->select();
+        $categoryS = array();
+        $categoryS[] = 0;
+        $categoryS[] = 47;
+        foreach ($category as $v) {
+            $categoryS[] = $v['id'];
+        }
+        $list = M('document')
+            ->join('LEFT JOIN ey_document_product on ey_document.id=ey_document_product.id')
+            ->join('LEFT JOIN ey_picture on ey_document.cover_id=ey_picture.id')
+            ->field('ey_document.*,ey_picture.path')
+            ->where(array('category_id' => array('in', $categoryS)))
+            ->select();
+
         if (false === $list) {
             $this->error('获取列表数据失败！');
         }
         /*ZHAOJUNLIKE@  */
-        $count = $Document->listCount($category['id']);
 
         $json['data'] = $list;
         $json['code'] = 200;

@@ -1,0 +1,166 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>{:C('WEB_SITE_TITLE')}</title>
+    <link href="__PUBLIC__/v1/libs/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="__PUBLIC__/v1_wap/css/app.css" rel="stylesheet">
+    <link href="__PUBLIC__/v1_wap/css/total.css" rel="stylesheet">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="__STATIC__/bootstrap/js/html5shiv.js"></script>
+    <![endif]-->
+    <block name="style"></block>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="__STATIC__/jquery-1.10.2.min.js"></script>
+    <![endif]-->
+    <!--[if gte IE 9]><!-->
+    <script type="text/javascript" src="__STATIC__/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="__STATIC__/bootstrap/js/bootstrap.min.js"></script>
+    <!--<![endif]-->
+    <link rel="stylesheet" href="__PUBLIC__/static/swiper/swiper-3.4.0.min.css">
+    <script type="text/javascript" src="__PUBLIC__/static/swiper/swiper-3.4.0.jquery.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/v1/libs/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/static/jquery-lazyload.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/static/vue2.0/vue.min.js"></script>
+
+</head>
+<body>
+<!--顶部logo-->
+<header class="header">
+    <nav class="navbar navbar-river" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bar-box">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img class="header-logo-text" src="__PUBLIC__/v1_wap/images/header_logo.png">
+                <div class="navbar-title">
+                    <span>中国竹纤维床垫专家</span>
+                </div>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bar-box">
+                <ul class="nav navbar-nav navbar-ul-river">
+                    <li><a href="./index.html">首页</a></li>
+                    <li><a href="">长江梦</a></li>
+                    <li><a href="">竹纤维产品</a></li>
+                    <li><a href="{:U('pages/sleep_center')}">睡眠中心</a></li>
+                    <li><a href="">客户服务</a></li>
+                    <li><a href="{:U('pages/join_us')}">招商加盟</a></li>
+                </ul>
+            </div>
+        </div><!-- /.container-fluid -->
+    </nav>
+</header>
+<block name="banner">
+    <!-- /头部 -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="__PUBLIC__/v1/images/banner/banner-1.png">
+            </div>
+            <div class="swiper-slide">
+                <img src="__PUBLIC__/v1/images/banner/banner-2.png">
+            </div>
+            <div class="swiper-slide">
+                <img src="__PUBLIC__/v1/images/banner/banner-3.png">
+            </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+    <script>
+        var mySwiper = new Swiper('.swiper-container', {
+            autoplay: 2000,//可选选项，自动滑动
+            effect: 'fade',
+            loop: true,
+            pagination: '.swiper-pagination',
+            paginationClickable: true
+        })
+    </script>
+</block>
+<!-- 主体 -->
+<div class="main-container">
+    <block name="body"></block>
+</div>
+<footer class="footer">
+    <div class="footer-part-box">
+        <div class="container shop-box">
+            <div class="row">
+                <div class="col-xs-4">
+                    <a>
+                        <img src="__PUBLIC__/v1_wap/images/shop_tmall.png" class="ey-img-lazy img-responsive">
+                    </a>
+                </div>
+                <div class="col-xs-4">
+                    <a>
+                        <img src="__PUBLIC__/v1_wap/images/shop_jd.png" class="ey-img-lazy img-responsive">
+                    </a>
+                </div>
+                <div class="col-xs-4">
+                    <a>
+                        <img src="__PUBLIC__/v1_wap/images/shop_taobao.png" class="ey-img-lazy img-responsive">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<div class="tab-bar">
+    <div class="bar-list">
+        <div class="bar-list-item">
+            <a>
+                <span class="bar-icon svg-qq"></span>
+                QQ在线
+            </a>
+        </div>
+        <div class="bar-list-item">
+            <a href="{:U('pages/sleep_center')}">
+                <span class="bar-icon svg-crat"></span>
+                竹纤维工艺
+            </a>
+        </div>
+        <div class="bar-list-item">
+            <a href="__ROOT__/">
+                <span class="bar-icon svg-home"></span>
+                首页
+            </a>
+        </div>
+        <div class="bar-list-item">
+            <a href="{:U('pages/product')}">
+                <span class="bar-icon svg-bed"></span>
+                产品中心
+            </a>
+        </div>
+        <div class="bar-list-item">
+            <a href="#">
+                <span class="bar-icon svg-phone"></span>
+                客服电话
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $("img.ey-img-lazy").lazyload({effect: 'fadeIn'});
+
+        $(".tab-box .tab-item").click(function (e) {
+            $(".tab-box .tab-item").removeClass("active");
+            $(this).toggleClass("active");
+        });
+    })
+</script>
+<!-- /底部 -->
+</body>
+</html>
+

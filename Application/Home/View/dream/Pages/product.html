@@ -19,13 +19,15 @@
                 <article>
                     <!--产品详情的专区-->
                     <div class="five_kindof_bedspace">
-                        <div class="five_shopdatails">
+                        <div class="five_shopdatails" style="display: none">
                             <ul class="attr_lists">
                                 <!--属性列表-->
                                 <li v-for="fi in proFilter">
                                     <img src="__PUBLIC__/v1/images/img/arrow.jpg"/>
                                     <span v-html="fi.remark"></span>:
-                                    <a :class="" v-for="attI in parseAttrExtra(fi.extra)" v-html="attI['k']"></a>
+                                    <a :class=""
+                                       v-for="attI in parseAttrExtra(fi.extra)"
+                                       v-html="attI['k']"></a>
                                 </li>
                             </ul>
                         </div>
@@ -33,9 +35,9 @@
                             <div class="five_displayshop_body container">
                                 <div class="row">
                                     <!--产品列表-->
-                                    <div class="col-xs-4" v-for="pro in evenProducts">
-                                        <a href="#"><img class="ey-img-lazy"
-                                                         src="__PUBLIC__/v1/images/img/bed.jpg"/>
+                                    <div class="col-xs-4" v-for="pro in products">
+                                        <a href="#">
+                                            <img class="ey-img-lazy" src="#" :src="pro.path"/>
                                             <p v-html="pro.title"></p>
                                         </a>
                                     </div>
@@ -60,23 +62,10 @@
         $(function () {
             var _products = [];
             var _attrs = [];
+
             var vm = new Vue({
                 el: "#product_page",
-                data: {products: [], proFilter: {}},
-                filters: {
-                    parseAttrExtra: function () {
-
-                    }
-                },
-                computed: {
-                    evenProducts: function () {
-                        return this.products.filter(function (product) {
-                            var show = false;
-                            console.log(vm.proFilter);
-                            return product.title !== "1";
-                        });
-                    }
-                },
+                data: {products: [], proFilter: {attr_series: '', attr_product_type: '', attr_houdu: ''}},
                 methods: {
                     initPageData: function () {
                         var _self = this;
@@ -94,7 +83,9 @@
 
                     },
                     parseAttrExtra: function (extra) {
-                        //console.log(extra);
+                        if (!extra) {
+                            return;
+                        }
                         var attrData = extra.split("\n");
                         var retData = [];
                         attrData.forEach(function (it) {
@@ -104,6 +95,9 @@
                             retData.push({k: v});
                         });
                         return retData;
+                    },
+                    filterProduct: function (d) {
+                        console.log(d);
                     }
                 },
                 created: function () {
@@ -114,7 +108,8 @@
             });
 
 
-        });
+        })
+        ;
     </script>
     </div>
 </block>

@@ -1,7 +1,7 @@
 <extend name="Base/common"/>
 
 <block name="body">
-    <div class="index-page">
+    <div class="index-page" id="index-page">
 
         <div class="title-box text-center" style="margin-top: 10px">
             <h4 class="title-en">The Natural Bamboo Mattress Fibber</h4>
@@ -23,7 +23,72 @@
         <div class="split-tree-line">
             <div class="shape-tree"></div>
         </div>
+        <div class="index-category-list pro-title-widget">
+            <div class="tab-box">
+                <a class="tab-item" v-for="item in category"
+                   @click="getProductData(item.id)" v-html="item.title"
+                   :data-id="item.id"></a>
+            </div>
+            <div class="product-list-inline-box container">
+                <transition-group name="index-list" tag="div">
+                    <div v-for="(item,index) in product_list" v-bind:key="index" class="col-xs-4">
+                        <h4 class="title" v-html="item.title"></h4>
+                        <div>
+                            <img src="__ROOT__" :src="'__ROOT__'+item.path" alt="">
+                        </div>
+                    </div>
+                </transition-group>
+            </div>
+        </div>
+
+
         <!--产品 筛选-->
+        <script>
+            $(function () {
+                var products_list = {};
+                var category = JSON.parse('{$_category_list|json_encode}');
+                Vue.config.devtools = true
+                var vmObj = new Vue({
+                    el: '#index-page',
+                    data: {
+                        category: category, product_list: []
+                    },
+                    computed: {
+                        productData: function () {
+
+                        }
+                    },
+                    methods: {
+                        getProductData: function (category_id) {
+                            if (!products_list[category_id]) {
+                                /**
+                                 * 获取产品
+                                 */
+                                $.post("{:U('index/getProduct')}", {category_id: category_id}, function (ret) {
+                                    products_list[category_id] = ret.data;
+                                    vmObj.product_list = [];
+                                    if (!ret.data) {
+                                        return;
+                                    }
+                                    ret.data.forEach(function (item) {
+                                        vmObj.product_list.push(item);
+                                    });
+                                });
+                            } else {
+                                vmObj.product_list = [];
+                                products_list[category_id].forEach(function (item) {
+                                    vmObj.product_list.push(item);
+                                });
+                            }
+                        }
+                    },
+                    mounted: function () {
+                        //初始化一些数据
+                        this.getProductData(category[0].id);
+                    }
+                });
+            });
+        </script>
 
         <div class="product-change-box">
             <div class="container">
