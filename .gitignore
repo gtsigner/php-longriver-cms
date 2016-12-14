@@ -4,4 +4,7 @@ Runtime
 .sql
 Install
 install.php
+Application/Common/Conf/config.php
+Application/Home/Conf/config.php
+Application/Admin/Conf/config.php
 ReadMe
