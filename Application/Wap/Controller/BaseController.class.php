@@ -31,7 +31,7 @@ class BaseController extends Controller
         if (!C('WEB_SITE_CLOSE')) {
             $this->error('站点已经关闭，请稍后访问~');
         }
-        //   $this->checkPc();
+        $this->checkPc();
     }
 
     /* 空操作，用于输出404页面 */
