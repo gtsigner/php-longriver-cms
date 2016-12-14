@@ -19,6 +19,7 @@ use Think\Controller;
 class HomeController extends Controller
 {
 
+    protected $limit_count = 9;
 
     protected function _initialize()
     {

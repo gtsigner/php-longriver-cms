@@ -35,27 +35,24 @@
                             <div class="five_displayshop_body container">
                                 <div class="row">
                                     <!--产品列表-->
-                                    <volist name="_product_list" id="vo">
-                                        <div class="col-xs-4">
-                                            <a href="javascript:void(0);">
-                                                <img class="ey-img-lazy" src="__ROOT__{$vo.path}"/>
-                                                <p>{$vo.title}</p>
-                                            </a>
-                                        </div>
-                                    </volist>
+                                    <div class="col-xs-4" v-for="pro in products">
+                                        <a href="#">
+                                            <img class="ey-img-lazy" src="#" :src="pro.path"/>
+                                            <p v-html="pro.title"></p>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="container">
-                        <div class="page text-center">
-                            {$_page}
+                        <div class="five_changedisplay text-center row">
+                            <div>{$_page}</div>
                         </div>
                     </div>
                 </article>
-
+                <div class="page">
+                    {$page}
+                </div>
             </div>
-
         </div>
         <!--公司荣誉-->
         <div id="tab-page-2">

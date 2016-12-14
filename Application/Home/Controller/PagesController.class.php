@@ -32,8 +32,48 @@ class PagesController extends HomeController
         $this->display();
     }
 
-    public function product()
+    public function product($p = 1)
     {
+        /**
+         * 获取分类
+         */
+        $cateMap['pid'] = 47;
+        $category = M('category')->where($cateMap)->select();
+        $categoryS = array();
+        $categoryS[] = 0;
+        $categoryS[] = 47;
+        foreach ($category as $v) {
+            $categoryS[] = $v['id'];
+        }
+        $this->assign('_category_list', $category);
+
+        /**
+         * 获取产品
+         */
+        $map = array();
+        $Cat_ID = I('cat_id');
+        if ($Cat_ID != '') {
+            $map['category_id'] = $Cat_ID;
+        } else {
+            $map['category_id'] = array('in', $categoryS);
+        }
+
+        $list = M('document')
+            ->join('LEFT JOIN ey_document_product on ey_document.id=ey_document_product.id')
+            ->join('LEFT JOIN ey_picture on ey_document.cover_id=ey_picture.id')
+            ->page($p, $this->limit_count)
+            ->where($map)
+            ->field("ey_document.*,ey_document_product.*,ey_picture.path")
+            ->select();
+
+        if (false === $list) {
+            $this->error('获取列表数据失败！');
+        }
+        $count = M('document')->where($map)->count();
+        $pModel = new PageHelper($count, $this->limit_count);
+        $this->assign("_page", $pModel->show());
+        $this->assign('_product_list', $list);
+        $this->assign("_cat_id", I('cat_id'));
         $this->display();
     }
 

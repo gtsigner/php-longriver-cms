@@ -591,4 +591,14 @@ img.hover-big {
     #oeynet-oneline-service .main-box .ey-btn-block {
       display: block; }
 
+.pagination li.active a, .pagination li.active span {
+  color: #fff;
+  background-color: #0CA818;
+  border-color: #0CA818; }
+.pagination li a, .pagination li span {
+  color: #0CA818; }
+  .pagination li a:focus, .pagination li a:hover, .pagination li span:focus, .pagination li span:hover {
+    color: #fff;
+    background-color: #0CA818; }
+
 /*# sourceMappingURL=total.css.map */

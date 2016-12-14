@@ -855,3 +855,23 @@ img.hover-big {
     }
   }
 }
+
+.pagination {
+  li {
+    &.active {
+      a, span {
+        color: #fff;
+        background-color: #0CA818;
+        border-color: #0CA818;
+      }
+    }
+    a, span {
+      color: #0CA818;
+
+      &:focus, &:hover {
+        color: #fff;
+        background-color: #0CA818;
+      }
+    }
+  }
+}
