@@ -2,6 +2,10 @@
 * {
   font-size: 14px; }
 
+.header .header-logo-text {
+  margin: 5px;
+  height: 60px; }
+
 .footer .copyright-box p {
   margin: 0; }
 
@@ -461,10 +465,10 @@ img.hover-big {
       width: 100%;
       padding: 15px; }
     .index-page .join-text-box .title {
-      color: #CCBFA2;
+      color: #9c8f79;
       text-align: center; }
     .index-page .join-text-box .content {
-      color: #5e9048;
+      color: #446b35;
       line-height: 22px;
       padding: 20px; }
   .index-page .index-show-box {

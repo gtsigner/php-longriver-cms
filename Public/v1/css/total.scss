@@ -2,6 +2,13 @@
   font-size: 14px;
 }
 
+.header {
+  .header-logo-text {
+    margin: 5px;
+    height: 60px;
+  }
+}
+
 .footer {
   .copyright-box {
     p {
@@ -687,11 +694,11 @@ img.hover-big {
       padding: 15px;
     }
     .title {
-      color: #CCBFA2;
+      color: #9c8f79;
       text-align: center;
     }
     .content {
-      color: #5e9048;
+      color: #446b35;
       line-height: 22px;
       padding: 20px;
     }
